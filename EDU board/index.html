@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDU Board</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="topbar">
+      <h1 class="logo">
+        <a href="/">EDU Board</a>
+      </h1>
+
+      <div class="user-info">
+        <!-- Profile figure for semantics -->
+        <figure class="profile">
+          <img
+            src="student.png"
+            alt="Student Avatar"
+            class="profile-img"
+            onerror="this.style.display='none'; document.getElementById('name-initials').style.display='flex';"
+          />
+          <figcaption class="sr-only">SRI RAM</figcaption>
+        </figure>
+
+        <!-- Fallback initials -->
+        <span class="initials" id="name-initials"></span>
+
+        <!-- Student name visible -->
+        <p class="student-name" id="student-name">SRI RAM</p>
+
+        <!-- Notification button with aria attributes -->
+        <div class="notification-wrapper">
+          <button
+            class="notification-btn"
+            data-count="3"
+            aria-label="Notifications"
+            aria-expanded="false"
+            aria-controls="notif-list"
+            id="notif-btn"
+          >
+            <i class="bi bi-bell" aria-hidden="true"></i>
+            <span class="sr-only">Notifications</span>
+            <!-- Red dot -->
+            <span class="dot"></span>
+          </button>
+
+          <ul id="notif-list" class="notification-dropdown" hidden>
+            <li>📘 Assignment 3 due tomorrow</li>
+            <li>✅ Your Math grade has been updated</li>
+            <li>📅 Class rescheduled to 2PM</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Side Navigation -->
+    <nav class="sidenav">
+      <ul>
+        <li><a href="#dashboard" data-section="dashboard">Dashboard</a></li>
+        <li><a href="#subjects" data-section="subjects">Subjects</a></li>
+        <li>
+          <a href="#deadlines" data-section="deadlines">Upcoming Deadlines</a>
+        </li>
+        <li><a href="#profile" data-section="profile">Profile</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main body shifted -->
+    <div class="main-content" id="main-content">
+      <section id="dashboard">
+        <h1>📊 Overview</h1>
+        <div class="overview-cards"></div>
+      </section>
+      <section id="subjects">
+        <h1>📚 Subjects</h1>
+        <div class="table-container">
+          <table id="subjects-table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Completion</th>
+                <th>Attendance</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="deadlines">
+        <h1>🗓️ Upcoming Deadlines</h1>
+        <ul class="deadlines-list" id="deadlines-list">
+          <!-- JS will populate items here -->
+        </ul>
+      </section>
+
+      <section id="profile">
+        <h1>👤 Profile</h1>
+        <article class="profile-card" id="profile-card">
+          <!-- JS will populate content here -->
+        </article>
+      </section>
+    </div>
+  </body>
+</html>
